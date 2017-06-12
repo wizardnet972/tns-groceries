@@ -1,3 +1,4 @@
+import * as SocialShare from "nativescript-social-share";
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 
 import { GroceryListService } from "../../shared/grocery/grocery-list.service";
@@ -57,5 +58,13 @@ export class ListComponent implements OnInit {
         this.grocery = "";
       }
       )
+  }
+
+  share() {
+    let listString = this.groceryList
+      .map(grocery => grocery.name)
+      .join(", ")
+      .trim();
+    SocialShare.shareText(listString);
   }
 }
