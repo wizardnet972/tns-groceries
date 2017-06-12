@@ -4,7 +4,10 @@
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.tnsgroceries"
+    "id": "org.nativescript.tnsgroceries",
+    "tns-android": {
+      "version": "3.0.1"
+    }
   },
   "dependencies": {
     "@angular/animations": "~4.0.0",
@@ -24,6 +27,10 @@
     "zone.js": "0.8.2"
   },
   "devDependencies": {
+    "babel-traverse": "6.4.5",
+    "babel-types": "6.4.5",
+    "babylon": "6.4.5",
+    "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "^0.*.*",
     "nativescript-dev-typescript": "^0.4.0",
     "typescript": "~2.2.1"
