@@ -1,0 +1,2 @@
+# tns-groceries
+with nativescript
