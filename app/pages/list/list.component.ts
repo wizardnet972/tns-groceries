@@ -1,5 +1,5 @@
 import * as SocialShare from "nativescript-social-share";
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from "@angular/core";
 
 import { GroceryListService } from "../../shared/grocery/grocery-list.service";
 import { Grocery } from "../../shared/grocery/grocery";
@@ -19,7 +19,9 @@ export class ListComponent implements OnInit {
   isLoading = false;
   listLoaded = false;
 
-  constructor(private groceryListService: GroceryListService) {
+  constructor(
+    private groceryListService: GroceryListService,
+    private zone: NgZone) {
   }
 
   ngOnInit() {
@@ -58,6 +60,16 @@ export class ListComponent implements OnInit {
         this.grocery = "";
       }
       )
+  }
+
+  delete(grocery: Grocery) {
+    this.groceryListService.delete(grocery.id)
+      .subscribe(() => {
+        this.zone.run(() => {
+          let index = this.groceryList.indexOf(grocery);
+          this.groceryList.splice(index, 1);
+        });
+      });
   }
 
   share() {

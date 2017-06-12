@@ -32,3 +32,10 @@ ListView {
     opacity: 1;
   }
 }
+
+.delete-container {
+  background-color: #CB1D00;
+  padding: 5;
+  height: 20;
+  margin-right: 8;
+}
